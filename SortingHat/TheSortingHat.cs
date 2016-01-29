@@ -27,7 +27,6 @@ namespace SortingHat
                 Console.WriteLine("Fitness: " + fitness);
                 if (fitness > bestFitness)
                 {
-                    
                     bestFitness = fitness;
                     count = 0;
                 }

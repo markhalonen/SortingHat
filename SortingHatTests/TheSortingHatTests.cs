@@ -159,5 +159,44 @@ namespace SortingHat.Tests
             Assert.AreEqual(6 * Settings.PreferredTeammateWeight, best.getFitness());
         }
 
+        [TestMethod()]
+        public void sortTeamMembersTest5()
+        {
+            TeamMember mem1 = new TeamMember("Mem1");
+            TeamMember mem2 = new TeamMember("Mem2");
+            TeamMember mem3 = new TeamMember("Mem3");
+            TeamMember mem4 = new TeamMember("Mem4");
+            TeamMember mem5 = new TeamMember("Mem5");
+            TeamMember mem6 = new TeamMember("Mem6");
+            TeamMember mem7 = new TeamMember("Mem7");
+            TeamMember mem8 = new TeamMember("Mem8");
+            TeamMember mem9 = new TeamMember("Mem9");
+            TeamMember mem10 = new TeamMember("Mem10");
+            mem1.unprefferedTeammates.Add(mem2);
+            mem2.unprefferedTeammates.Add(mem1);
+            mem3.unprefferedTeammates.Add(mem4);
+            mem4.unprefferedTeammates.Add(mem3);
+            //a pair of enemies.
+            mem9.preferredTeammates.Add(mem10);
+            mem10.preferredTeammates.Add(mem9);
+            mem8.preferredTeammates.Add(mem7);
+            mem7.preferredTeammates.Add(mem8);
+            //a pair of friends.
+            List<TeamMember> pop = new List<TeamMember>();
+            pop.Add(mem1);
+            pop.Add(mem3);
+            pop.Add(mem2);
+            pop.Add(mem4);
+            pop.Add(mem5);
+            pop.Add(mem6);
+            pop.Add(mem7);
+            pop.Add(mem8);
+            pop.Add(mem9);
+            pop.Add(mem10);
+            League best = TheSortingHat.sortTeamMembers(pop, 2);
+            //from inspection, we can get 4 * preferredWeight for fitness.
+            Assert.AreEqual(4 * Settings.PreferredTeammateWeight, best.getFitness());
+        }
+
     }
 }
