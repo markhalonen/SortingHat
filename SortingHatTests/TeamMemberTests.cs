@@ -11,6 +11,7 @@ namespace SortingHat.Tests
     [TestClass()]
     public class TeamMemberTests
     {
+        //is this from mark
         [TestMethod()]
         public void getFitnessTest()
         {
