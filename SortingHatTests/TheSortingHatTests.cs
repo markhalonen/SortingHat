@@ -143,14 +143,6 @@ namespace SortingHat.Tests
             mem3.preferredTeammates.Add(mem1);
             mem3.preferredTeammates.Add(mem2);
             //clique
-
-            //mem4.preferredTeammates.Add(mem5);
-
-            //mem6.preferredTeammates.Add(mem7);
-            //mem7.preferredTeammates.Add(mem8);
-            //mem8.preferredTeammates.Add(mem9);
-            //mem9.preferredTeammates.Add(mem10);
-
             List<TeamMember> pop = new List<TeamMember>();
             pop.Add(mem1);
             pop.Add(mem3);
@@ -162,8 +154,6 @@ namespace SortingHat.Tests
             pop.Add(mem8);
             pop.Add(mem9);
             pop.Add(mem10);
-
-
             League best = TheSortingHat.sortTeamMembers(pop, 2);
             //from inspection, we can get 2 * preferredWeight for fitness.
             Assert.AreEqual(6 * Settings.PreferredTeammateWeight, best.getFitness());

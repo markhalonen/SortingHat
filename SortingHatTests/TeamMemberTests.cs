@@ -29,7 +29,11 @@ namespace SortingHat.Tests
         [TestMethod()]
         public void CloneTest()
         {
-            Assert.AreEqual(1, 1);
+            TeamMember mem = new TeamMember("Mem1");
+            TeamMember clone = mem.Clone();
+            Assert.AreNotEqual(mem, clone);
+            Assert.AreEqual(mem.preferredTeammates, clone.preferredTeammates);
+            Assert.AreEqual(mem.unprefferedTeammates, clone.unprefferedTeammates);
         }
     }
 }
